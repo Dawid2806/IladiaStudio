@@ -1,4 +1,7 @@
 // app global css in SCSS form
+
+@import 'left-menu.scss';
+
 .page-bg{
 
   background-color: #121212;
@@ -12,4 +15,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
 }
+

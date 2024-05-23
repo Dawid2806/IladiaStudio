@@ -1,45 +1,52 @@
 <template>
-  <q-page>
+  <q-page class="q-px-lg">
     <h5 class="h3">Persönliche Daten</h5>
 
     <q-form class="grid-form">
       <div>
         <span> Vorname </span>
-        <q-input v-model="inputs.firstname" />
+        <q-input v-model="inputs.firstname" outlined />
       </div>
       <div>
         <span> Nachname </span>
-        <q-input v-model="inputs.lastname" />
+        <q-input v-model="inputs.lastname" outlined />
       </div>
       <div>
         <span> Handy nummer </span>
-        <q-input v-model="inputs.phone" />
+        <q-input v-model="inputs.phone" outlined />
       </div>
       <div>
         <span> Geburstag Datum </span>
-        <q-input v-model="inputs.birthdate" />
+        <q-input v-model="inputs.birthdate" outlined />
       </div>
     </q-form>
+
     <h5>Addresse</h5>
-    <q-form>
+    <q-form class="grid-form">
       <div>
         <span>Straße und Hausnummer </span>
-        <q-input v-model="inputs.streetAndNumber" />
+        <q-input v-model="inputs.streetAndNumber" outlined />
       </div>
       <div>
         <span>Stadt</span>
-        <q-input v-model="inputs.city" />
+        <q-input v-model="inputs.city" outlined />
       </div>
       <div>
         <span>Postleitzahl</span>
-        <q-input v-model="inputs.postcode" />
+        <q-input v-model="inputs.postcode" outlined />
       </div>
     </q-form>
+
+    <h5>Gesundheitliche Einwilligungen:</h5>
+    <q-form>
+      <HealtyForm @update-health-data="updateHealthData" />
+    </q-form>
+
     <h5>Einwilligung zur Verarbeitung personenbezogener Daten:</h5>
     <q-form>
       <q-checkbox v-model="inputs.personalData">
-        <span
-          >Wir werden von dem fer! ggestellten Werk Lichtbildaufnahmen fer! gen.
+        <span>
+          Wir werden von dem fer! ggestellten Werk Lichtbildaufnahmen fer! gen.
           Der Kunde/die Kundin willigt hiermit ausdrücklich darin ein, dass
           diese Lichtbilder jenseits eines gemäß Art. 6 Absatz 1(f) EU-DSGVO
           zulässigen Zwecks zum Zwecke der Außendarstellung auf unserer Website,
@@ -47,8 +54,8 @@
           oder auf Werbebannern verö# entlich werden.
         </span>
         <br />
-        <span
-          >Zudem werden mit dieser Einwilligungserklärung Gesundheitsdaten
+        <span>
+          Zudem werden mit dieser Einwilligungserklärung Gesundheitsdaten
           erhoben, damit wir entscheiden können, ob die Durchführung des
           Vertrags ohne Gefahr für Eure Gesundheit und ohne Beeinträch! gung des
           Ergebnisses unserer Arbeit möglich ist. Daher kann ohne diese
@@ -61,9 +68,8 @@
           mmungserklärung vernichtet
         </span>
         <br />
-
-        <span
-          >Diese Einwilligung kann uns gegenüber jederzeit widerrufen werden
+        <span>
+          Diese Einwilligung kann uns gegenüber jederzeit widerrufen werden
           (Art. 7 Abs. 3 EU-DSGVO). Hiernach dürfen wir die Verarbeitung der
           unter der Einwilligung erhobenen und/oder verwendeten Lichtbilder
           nicht mehr fortsetzen. Die erhobenen Gesundheitsdaten werden – da
@@ -72,12 +78,12 @@
         </span>
       </q-checkbox>
     </q-form>
-    <h5>Gesundheitliche Einwilligungen:</h5>
 
-    <q-form>
-      <HealtyForm />
-    </q-form>
-    <MySignaturePad></MySignaturePad>
+    <h5>Unterschrift :</h5>
+    <MySignaturePad @update-signatur="updateSignatureData" />
+    <div>
+      <q-btn @click="submit" label="dodaj"></q-btn>
+    </div>
   </q-page>
 </template>
 
@@ -95,7 +101,19 @@ const inputs = ref({
   city: "",
   postcode: "",
   personalData: false,
+  healthData: {},
+  signature: "",
 });
+
+const updateHealthData = (data) => {
+  inputs.value.healthData = data;
+};
+const updateSignatureData = (data) => {
+  inputs.value.signature = data;
+};
+const submit = () => {
+  console.log(inputs.value);
+};
 </script>
 
 <style scoped></style>
