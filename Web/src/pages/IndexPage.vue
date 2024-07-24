@@ -4,14 +4,14 @@
       <div class="startPageLeft" @click="goTo('tattoo')">
         <h2>Tatto</h2>
         <div class="logo_container">
-          <img src="/images/logo2.png" alt="" />
+          <LogoComponent />
         </div>
       </div>
       <div class="startPageRight" @click="goTo('nails')">
-        <h2>Tatto</h2>
+        <h2>Nails</h2>
 
         <div class="logo_container">
-          <img src="/images/logo2.png" alt="" />
+          <LogoComponent />
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-
+import LogoComponent from "../components/LogoComponent.vue";
 const router = useRouter();
 
 const goTo = (path) => {

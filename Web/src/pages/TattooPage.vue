@@ -1,17 +1,10 @@
-
 <template>
-<q-page class="container">
-  <h1>Tattoo Page</h1>
-  <Gallery />
-</q-page>
+  <q-page class="container">
+    <LogoComponent />
+  </q-page>
 </template>
 <script setup>
-
-
-
-import Gallery from "components/GalleryComponent.vue";
+import LogoComponent from "../components/LogoComponent.vue";
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
