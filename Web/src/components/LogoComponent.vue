@@ -1,44 +1,67 @@
 <template>
-  <div class="logo-wrapper">
-    <div class="logo-container">
-      <div class="first atteron">Iladia</div>
-      <div class="secondery beauty">Studio</div>
+
+
+    <div class="logo-wrapper">
+      <div class="logo-container">
+        <div class="first atteron" :style="{color:textColor}">Iladia</div>
+        <div class="secondery beauty " :style="{color:textColor} ">Studio</div>
+      </div>
     </div>
+  <div class="avatar">
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+
+const props = defineProps({
+  textColor: {
+    type: String,
+    default: "black",
+  },
+});
+
+</script>
 
 <style scoped lang="scss">
+
+
+
 .logo-wrapper {
   position: relative;
+  z-index: 0;
   width: 300px;
   height: 300px;
-  background: white;
-  border-radius: 50%;
-  border: 5px solid transparent;
 }
 
-.logo-wrapper::before {
+.logo-wrapper:before {
+  width: 300px;
+  height: 300px;
+  aspect-ratio: 1;
   content: "";
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border-radius: 50%;
-  animation: rotate 3s forwards infinite;
-  background: conic-gradient(
-    from 0deg,
-    #d4af37,
-    #f3e5ab 20%,
-    #d4af37 40%,
-    #000000 60%,
-    #d4af37 80%,
-    #f3e5ab 100%
-  );
   z-index: -1;
+  inset: 0;
+  padding: 8px;
+  border-radius: 100%;
+  background:  conic-gradient(
+      from 0deg,
+      #D4AF37,
+      #F3E5AB 20%,
+      #D4AF37 40%,
+      #000000 60%,
+      #D4AF37 80%,
+      #F3E5AB 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+  linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box,
+  linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate 3s linear infinite;
 }
+
+
 
 .logo-container {
   position: absolute;
@@ -52,6 +75,7 @@
     margin-right: 4rem;
     margin-bottom: 2rem;
   }
+
   div.secondery {
     font-size: 8rem;
     position: absolute;

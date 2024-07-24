@@ -2,14 +2,13 @@
   <q-page>
     <div class="startPage">
       <div class="startPageLeft" @click="goTo('tattoo')">
-        <h2>Tatto</h2>
+        <h2 class="lobster">Tatto</h2>
         <div class="logo_container">
           <LogoComponent />
         </div>
       </div>
       <div class="startPageRight" @click="goTo('nails')">
-        <h2>Nails</h2>
-
+        <h2 class="lobster text-black">Nails</h2>
         <div class="logo_container">
           <LogoComponent />
         </div>

@@ -1,106 +1,4 @@
 // // app global css in SCSS form
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-// .startPage {
-//   display: flex;
-//   padding: 0;
-//   margin: 0;
-//   width: 100vw;
-//   height: 100vh;
-// }
-
-// .startPageLeft,
-// .startPageRight {
-//   position: relative;
-//   width: 50%;
-//   height: 100%;
-//   background-position: center;
-//   background-size: cover;
-// }
-
-// .startPageLeft {
-//   background-image: url("/images/tattoo.jpg");
-//   cursor: url("/icons/cursorT.png"), auto;
-// }
-
-// .startPageRight {
-//   background-image: url("/images/nails.jpg");
-//   cursor: url("/icons/cursorN.png"), auto;
-// }
-
-// .startPageLeft:after,
-// .startPageRight:after {
-//   content: "";
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.7);
-//   transition: background-color 0.3s;
-// }
-
-// .startPageLeft:hover:after,
-// .startPageRight:hover:after {
-//   background-color: rgba(0, 0, 0, 0.3);
-// }
-
-// .logo_container {
-//   position: absolute;
-//   transform: translate(-50%, -50%);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   width: 250px;
-//   height: 250px;
-// }
-
-// .logo_container img {
-//   width: 100%;
-//   height: 100%;
-// }
-
-// /* Dodanie animacji */
-// @keyframes slideFromTopLeft {
-//   0% {
-//     top: 0;
-//     left: 0;
-//     opacity: 0;
-//   }
-//   100% {
-//     top: 50%;
-//     left: 50%;
-//     opacity: 1;
-//   }
-// }
-
-// @keyframes slideFromBottomRight {
-//   0% {
-//     top: 100%; /* Wychodzi poza dolną krawędź */
-//     left: 100%; /* Wychodzi poza prawą krawędź */
-//     opacity: 0;
-//   }
-//   100% {
-//     top: 50%; /* Centrum w pionie */
-//     left: 50%; /* Centrum w poziomie */
-//     opacity: 1;
-//   }
-// }
-
-// .startPageLeft .logo_container {
-//   animation: slideFromTopLeft 1s ease-out forwards;
-// }
-
-// .startPageRight .logo_container {
-//   animation: slideFromBottomRight 1s ease-out forwards;
-// }
-
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AR:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AR:wght@100..400&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap");
@@ -120,12 +18,21 @@
   font-style: normal;
 }
 
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 .atteron {
   font-family: "Atteron", sans-serif;
 }
 
 .beauty {
   font-family: "beauty", sans-serif;
+}
+.lobster {
+  font-family: "Lobster", cursive;
 }
 
 * {
@@ -134,12 +41,8 @@
 body {
   margin: 0;
   padding: 0;
-  // font-family: "Playwrite AT", cursive;
-  // font-family: "Playwrite DK Loopet", cursive;
-  // font-family: "Playwrite AR", cursive;
-  // font-family: "Anton SC", sans-serif;
-  // font-family: "Lobster", cursive;
-  font-family: "Atteron", sans-serif;
+  background: black;
+  color: white;
 }
 
 .startPage {
@@ -157,11 +60,10 @@ body {
     cursor: url("/icons/cursorT.png"), auto;
     .logo_container {
       position: absolute;
-      top: -100%;
+      top: 100%;
       left: -100%;
       animation: slideFromTopLeft 3s ease-out forwards;
       overflow: hidden;
-      // background-color: white;
     }
   }
   .startPageRight {
@@ -191,27 +93,14 @@ body {
     h2 {
       color: white;
       font-size: 4rem;
-      overflow: hidden;
       position: relative;
       opacity: 0;
       animation: showTextAnimation 10s ease-out forwards;
-      animation-duration: 10s;
+      animation-duration: 5s;
     }
-    h2:before {
-      content: "";
-      position: absolute;
-      left: 120%;
-      width: 120%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, #000 5%, transparent);
-      animation: animation 10s infinite;
-    }
+
   }
-  .startPageLeft img,
-  .startPageRight img {
-    width: 300px;
-    height: 150px;
-  }
+
 }
 
 @keyframes slideFromTopLeft {
@@ -223,7 +112,7 @@ body {
   100% {
     top: 100%;
     left: 50%; // 50% - 1/2 szerokości obrazka (150px/2 = 75px
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -50%);
     opacity: 1;
   }
 }
@@ -237,7 +126,7 @@ body {
   100% {
     top: 0%; /* Centrum w pionie */
     right: 50%; /* Centrum w poziomie */
-    transform: translate(50%, 0%);
+    transform: translate(50%, -50%);
 
     opacity: 1;
   }

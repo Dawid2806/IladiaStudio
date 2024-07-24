@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh lpR lFf">
+  <q-layout view="lHh lpR fff">
     <q-header v-if="router.currentRoute.value.path !== '/'" class="bg-black">
       <q-toolbar class="container">
         <q-btn dense flat round icon="menu" class="mobile-menu"
@@ -26,7 +26,7 @@
     <q-drawer v-model="leftDrawerOpen" side="left" bordered>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container >
       <router-view />
     </q-page-container>
 
