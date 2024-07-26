@@ -44,7 +44,9 @@ body {
   background: black;
   color: white;
 }
-
+h1,h2,h3,h4 {
+  margin: 0;
+}
 .startPage {
   display: flex;
   flex-direction: column;
